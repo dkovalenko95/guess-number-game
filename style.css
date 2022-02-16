@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+
+  --text-color: #FFFAFA;
+  --bg-color: #222;
+  --blue-hover: #5694F9;
+}
+
+html[data-theme="light"] {
+  --text-color: #222;
+  --bg-color: #FFFAFA;
+  --blue-hover: #5694F9;
+}
+
+body {
+  font-family: 'Press Start 2P', sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* LAYOUT */
+header {
+  position: relative;
+  height: 35vh;
+  border-bottom: 7px solid var(--text-color);
+}
+
+main {
+  height: 65vh;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.screen1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  transition: margin 0.5s ease-out;
+  background-color: var(--bg-color);
+  background-attachment: fixed;
+}
+
+.screen1.up {
+  margin-top: -100vh;
+}
+
+.title-scale {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.scale {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.set-number {
+  background: none;
+  border: 2px solid var(--text-color);
+  font-family: inherit;
+  color: inherit;
+  font-size: 1.5rem;
+  padding: 1rem;
+  width: 10rem;
+  margin-bottom: 3rem;
+}
+
+.left {
+  width: 52rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right {
+  width: 52rem;
+  font-size: 2rem;
+}
+
+/* ELEMENTS STYLE */
+h1 {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+h2 {
+  font-size: 3.5rem;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.number {
+  background: var(--text-color);
+  color: var(--bg-color);
+  font-size: 6rem;
+  width: 15rem;
+  padding: 3rem 0rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.between {
+  font-size: 1.4rem;
+  position: absolute;
+  top: 2rem;
+  right: 10rem;
+}
+
+.btn.again {
+  width: 18rem;
+  display: none;
+  position: absolute;
+  top: 12rem;
+  left: 2rem;
+}
+
+.btn.reset {
+  width: 18rem;
+  display: block;
+  position: absolute;
+  top: 4rem;
+  left: 2rem;
+}
+
+.startBtn-wrapper {
+  height: 5rem;
+}
+
+.startScreenBtn {
+  border: none;
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  font-size: 2rem;
+  font-family: inherit;
+  padding: 2rem 3rem;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  display: none;
+}
+.startScreenBtn:hover {
+  background-color: var(--blue-hover)
+}
+
+.guess {
+  background: none;
+  border: 4px solid var(--text-color);
+  font-family: inherit;
+  color: inherit;
+  font-size: 5rem;
+  padding: 2.5rem;
+  width: 25rem;
+  text-align: center;
+  display: block;
+  margin-bottom: 3rem;
+}
+
+.btn {
+  border: none;
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  font-size: 2rem;
+  font-family: inherit;
+  padding: 2rem 3rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--blue-hover);
+}
+
+.message {
+  margin-bottom: 8rem;
+  height: 3rem;
+}
+
+.label-score {
+  margin-bottom: 2rem;
+}
+
+.btn-ok {
+  font-size: 1.5rem;
+  padding: 1rem;
+} 
+
+/* switcher styling */
+input[type=checkbox] {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 5rem;
+  height: 2.6rem;
+  background: grey;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 100;
+}
+
+label:after {
+  content: '';
+  position: absolute;
+  top: 0.3rem;
+  left: 0.3rem;
+  width: 2rem;
+  height: 2rem;
+  background: #fff;
+  transition: 0.2s;
+}
+
+input:checked + label {
+  background: var(--blue-hover);
+}
+
+input:checked + label:after {
+  left: calc(100% - 0.3rem);
+  transform: translateX(-100%);
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 0.2s !important;
+  transition-delay: 0 !important;
+}
